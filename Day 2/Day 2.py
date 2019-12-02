@@ -15,6 +15,8 @@ x = re.sub('\n','',string)
 str_data = x.split(',')
 dataset = [int(x) for x in str_data]
 
+f.close()
+
 def opcodes(data, noun, verb):   
     data[1] = noun
     data[2] = verb    
