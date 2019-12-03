@@ -5,6 +5,8 @@ Created on Mon Dec  2 21:57:21 2019
 @author: Vincent Zhao
 """
 
+import time
+
 f = open("input.txt", "r")
 
 wire_1 = f.readline().strip().split(',')
@@ -18,6 +20,8 @@ wire_2 = f.readline().strip().split(',')
 
 def run(instructions):
     path = []
+    steps = dict()
+    total_steps = 0
     current_pos = (0,0)
     
     for instruct in instructions:
@@ -26,28 +30,46 @@ def run(instructions):
         
         if direction == 'U':
             for i in range(1,distance + 1):
-                path.append((current_pos[0],current_pos[1] + i))
+                x = (current_pos[0],current_pos[1] + i)
+                path.append(x)
+                total_steps += 1
+                if (x not in steps):
+                    steps.update({x:total_steps})
             current_pos = (current_pos[0],current_pos[1] + distance)
             
         if direction == 'D':
             for i in range(1,distance + 1):
-                path.append((current_pos[0],current_pos[1] - i))
+                x = (current_pos[0],current_pos[1] - i)
+                path.append(x)
+                total_steps += 1
+                if (x not in steps):
+                    steps.update({x:total_steps})
             current_pos = (current_pos[0],current_pos[1] - distance)    
             
         if direction == 'L':
             for i in range(1,distance + 1):
-                path.append((current_pos[0] - i,current_pos[1]))
-            current_pos = (current_pos[0] - distance,current_pos[1])    
+                x = (current_pos[0] - i,current_pos[1])
+                path.append(x)
+                total_steps += 1
+                if (x not in steps):
+                    steps.update({x:total_steps})
+            current_pos = (current_pos[0] - distance,current_pos[1])        
             
         if direction == 'R':
             for i in range(1,distance + 1):
-                path.append((current_pos[0] + i,current_pos[1]))
+                x = (current_pos[0] + i,current_pos[1])
+                path.append(x)
+                total_steps += 1
+                if (x not in steps):
+                    steps.update({x:total_steps})
             current_pos = (current_pos[0] + distance,current_pos[1])
             
-    return path
-        
-wire_1_path = run(wire_1)
-wire_2_path = run(wire_2)
+    return path, steps
+
+start = time.time()
+
+wire_1_path, steps_1 = run(wire_1)
+wire_2_path, steps_2 = run(wire_2)
 
 intersections = list(set(wire_1_path) & set(wire_2_path)) 
 
@@ -59,19 +81,20 @@ for inter in intersections:
 
 print("Part 1:", min(distances))
 
-steps = []
+end1 = time.time()
+print(end1 - start)
+
+
+steps_s = []
 
 for inter in intersections:
-    steps.append(wire_1_path.index(inter) + wire_2_path.index(inter) + 2)
+    steps_s.append(steps_1.get(inter) + steps_2.get(inter))
 
 
-print("Part 2:", min(steps))
+print("Part 2:", min(steps_s))
 
-
-
-
-
-
+end2 = time.time()
+print((end2 - start)-(end1 - start))
 
 
 
