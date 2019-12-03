@@ -5,6 +5,7 @@ Created on Sun Dec  1 22:03:53 2019
 @author: Vincent Zhao
 """
 
+import time
 import re
 
 f = open("input.txt", "r")
@@ -16,7 +17,7 @@ str_data = x.split(',')
 dataset = [int(x) for x in str_data]
 
 f.close()
-
+    
 def opcodes(data, noun, verb):   
     data[1] = noun
     data[2] = verb    
@@ -30,10 +31,14 @@ def opcodes(data, noun, verb):
     return data[0]
 
 #### part 1 ####
-
+start = time.time()
 print(opcodes(dataset.copy(),12,2))
+end = time.time()
+print(end - start)
 
 #### part 2 ####
+
+start = time.time()
 
 target = 19690720
 
@@ -42,3 +47,6 @@ for noun in range(0,100,1):
         if opcodes(dataset.copy(),noun,verb) == target:
             print(100 * noun + verb)            
             noun, verb = 100, 100            
+
+end = time.time()
+print(end - start)
