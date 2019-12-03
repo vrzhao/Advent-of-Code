@@ -4,6 +4,7 @@ Created on Mon Dec  2 21:57:21 2019
 
 @author: Vincent Zhao
 """
+import time
 
 f = open("input.txt", "r")
 
@@ -45,6 +46,8 @@ def run(instructions):
             current_pos = (current_pos[0] + distance,current_pos[1])
             
     return path
+
+start = time.time()
         
 wire_1_path = run(wire_1)
 wire_2_path = run(wire_2)
@@ -59,6 +62,9 @@ for inter in intersections:
 
 print("Part 1:", min(distances))
 
+end1 = time.time()
+print(end1-start)
+
 steps = []
 
 for inter in intersections:
@@ -67,7 +73,8 @@ for inter in intersections:
 
 print("Part 2:", min(steps))
 
-
+end2 = time.time()
+print((end2-start)-(end1-start))
 
 
 
