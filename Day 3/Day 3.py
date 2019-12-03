@@ -11,6 +11,8 @@ f = open("input.txt", "r")
 
 wire_1 = f.readline().strip().split(',')
 wire_2 = f.readline().strip().split(',')
+
+f.close()
 #
 #data_1 = "R75,D30,R83,U83,L12,D49,R71,U7,L72"
 #data_2 = "U62,R66,U55,R34,D71,R55,D58,R83"
