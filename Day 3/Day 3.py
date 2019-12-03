@@ -10,10 +10,10 @@ f = open("input.txt", "r")
 wire_1 = f.readline().strip().split(',')
 wire_2 = f.readline().strip().split(',')
 #
-#data1 = "R75,D30,R83,U83,L12,D49,R71,U7,L72"
-#data2 = "U62,R66,U55,R34,D71,R55,D58,R83"
-#wire_1 = data1.split(',')
-#wire_2 = data2.split(',')
+#data_1 = "R75,D30,R83,U83,L12,D49,R71,U7,L72"
+#data_2 = "U62,R66,U55,R34,D71,R55,D58,R83"
+#wire_1 = data_1.split(',')
+#wire_2 = data_2.split(',')
 
 
 def run(instructions):
@@ -53,16 +53,16 @@ intersections = list(set(wire_1_path) & set(wire_2_path))
 
 distances = []
 
-for intersection in intersections:
-    distances.append(abs(intersection[0]) + abs(intersection[1]))
+for inter in intersections:
+    distances.append(abs(inter[0]) + abs(inter[1]))
 
 
 print("Part 1:", min(distances))
 
 steps = []
 
-for intersection in intersections:
-    steps.append(wire_1_path.index(intersection) + wire_2_path.index(intersection) + 2)
+for inter in intersections:
+    steps.append(wire_1_path.index(inter) + wire_2_path.index(inter) + 2)
 
 
 print("Part 2:", min(steps))
