@@ -6,7 +6,7 @@ My Solutions for the 2019 Advent of Code Challenge
 
 Day 01 ** 
 Day 02 ** 
-Day 03 __ 
+Day 03 ** 
 Day 04 __
 Day 05 __
 Day 06 __
