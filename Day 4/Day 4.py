@@ -30,14 +30,16 @@ Created on Tue Dec  3 22:07:24 2019
 #        possible += 1
 #
 
+import time
+
+start = time.time()
+
 def run(min_input, max_input):   
     possible = 0
     possible2 = 0
     
     for i in range (min_input + 1, max_input):
         password = str(i)
-        
-    #    pair = False
         pairs = dict()
         decreasing = True
         
@@ -66,17 +68,16 @@ def run(min_input, max_input):
             
     
     print("Part 1:", possible)
-        
     print("Part 2:", possible2)
 
-        
 
 min_num = 264360
 max_num = 746325
 
 run(min_num, max_num)
-        
-        
+      
+end = time.time()  
+print(end - start)
         
         
         
