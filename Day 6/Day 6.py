@@ -9,47 +9,40 @@ import time
 
 f = open("input.txt", "r")
 
-database = []
 map_ = dict()
 
 for row in f:
-    data = row.strip().split(')')
-    orbitee = data[0]
-    orbiter = data[1]
-    
-    database.append(orbitee)
-    database.append(orbiter)
+    orbitee, orbiter = row.strip().split(')')
     map_.update({orbiter:orbitee})
-
-objects = set(database)
 
 f.close()
 
+### Part 1 ###
 start = time.time()
 
 total_orbits = 0
 
-for object_ in objects:
+for object_ in map_:
     pointer = object_
     orbits = 0
     while pointer != 'COM':
-        orbits += 1
+        total_orbits += 1
         pointer = map_.get(pointer)
         
-    total_orbits += orbits
-
 print("Part 1:", total_orbits)
 
 end = time.time()
 
 print("Runtime:", end - start, '\n')
 
+### Part 2 ###
 start = time.time()
 
 you_chain = []
 san_chain = []
 you_pointer = 'YOU'
 san_pointer = 'SAN'
+
 while True:
     you_pointer = map_.get(you_pointer)
     san_pointer = map_.get(san_pointer)
@@ -63,7 +56,7 @@ while True:
     
     if san_pointer in you_chain:
         print("Part 2:", you_chain.index(san_pointer) + san_chain.index(san_pointer))
-        break    
+        break
 
 end = time.time()
 
