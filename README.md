@@ -9,7 +9,7 @@ Day 02 **
 Day 03 ** 
 Day 04 **
 Day 05 **
-Day 06 __
+Day 06 **
 Day 07 __
 Day 08 __
 Day 09 __
