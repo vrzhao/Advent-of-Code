@@ -2,7 +2,7 @@
 
 ### Score
 
-Day 01 __ 
+Day 01 ** 
 Day 02 __ 
 Day 03 __ 
 Day 04 __
