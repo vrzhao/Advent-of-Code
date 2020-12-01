@@ -2,12 +2,12 @@
 
 ### Score
 
-Day 01 ** 
-Day 02 ** 
-Day 03 ** 
-Day 04 **
-Day 05 **
-Day 06 **
+Day 01 __ 
+Day 02 __ 
+Day 03 __ 
+Day 04 __
+Day 05 __
+Day 06 __
 Day 07 __
 Day 08 __
 Day 09 __
