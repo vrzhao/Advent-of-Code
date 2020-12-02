@@ -30,7 +30,7 @@ for data in database:
     policy = data[0].split('-')
     if password.count(letter) >= int(policy[0]) and password.count(letter) <= int(policy[1]):
         valid1 += 1
-    if (password[int(policy[0])-1] == letter and password[int(policy[1])-1] != letter) or (password[int(policy[1])-1] == letter and password[int(policy[0])-1] != letter):
+    if (password[int(policy[0])-1] == letter) != (password[int(policy[1])-1] != letter):
         valid2 += 1
 
         
