@@ -45,14 +45,11 @@ print(end-start)
 
 start = time.time()
 
-for route in instructions:
-    results.append(check_route(database, route[0], route[1]))
-    
 product = 1
 
-for num in results:
-    product *= num
-
+for route in instructions:
+    product *= check_route(database, route[0], route[1])
+    
 print(product)
 
 end = time.time()
