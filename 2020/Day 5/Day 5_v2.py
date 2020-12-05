@@ -13,13 +13,7 @@ start = time.time()
 
 f = open("input.txt", "r")
 
-ID_list = []
-
-for row in f:
-    instruction = row.strip('\n')
-    instruction = re.sub('[FL]','0',instruction)
-    instruction = re.sub('[BR]','1',instruction)
-    ID_list.append(int(instruction,2))
+ID_list = [(int(re.sub('[BR]','1',re.sub('[FL]','0',row.strip('\n'))),2)) for row in f]
 
 f.close()
 
