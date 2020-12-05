@@ -7,11 +7,9 @@ Created on Sat Dec  5 00:34:38 2020
 
 import time
 import math
-
+import re
 
 database = []
-rows = 128
-columns = 8
 
 f = open("input.txt", "r")
 
@@ -20,8 +18,8 @@ for row in f:
     
 f.close()
 
-def BSP(instructions, upper_bound):
-    location = [0,upper_bound-1]
+def BSP(instructions):
+    location = [0, 2**len(instructions)-1]
     for instruction in instructions:
         if instruction in ['F','L']:
             location[1] = math.floor(sum(location)/2)
@@ -30,11 +28,10 @@ def BSP(instructions, upper_bound):
             
     return location[0]
 def calculate_seatID(instructions):
-    row = BSP(instructions[0:7],rows)
-    column = BSP(instructions[7:],columns)
+    row = BSP(re.findall("[FB]",instructions))
+    column = BSP(re.findall("[LR]",instructions))
     
     return (row*8)+column
-
 
 # Part 1
 start = time.time()
@@ -47,10 +44,8 @@ for boarding_pass in database:
 
 print(max(ID_list))
 
-
 end = time.time()
 print(end-start)
-
 
 # Part 2
 start = time.time()
