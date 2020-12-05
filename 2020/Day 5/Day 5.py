@@ -9,14 +9,6 @@ import time
 import math
 import re
 
-database = []
-
-f = open("input.txt", "r")
-
-for row in f:
-    database.append(row.strip('\n'))
-    
-f.close()
 
 def BSP(instructions):
     location = [0, 2**len(instructions)-1]
@@ -38,11 +30,15 @@ def calculate_seatID(instructions):
 # Part 1
 start = time.time()
 
+f = open("input.txt", "r")
+
 ID_list = []
 
-for boarding_pass in database:
-    seatID = calculate_seatID(boarding_pass)
+for row in f:
+    seatID = calculate_seatID(row.strip('\n'))
     ID_list.append(seatID)
+
+f.close()
 
 print(max(ID_list))
 
