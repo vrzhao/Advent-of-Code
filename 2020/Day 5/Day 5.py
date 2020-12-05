@@ -28,10 +28,12 @@ def BSP(instructions):
             
     return location[0]
 def calculate_seatID(instructions):
-    row = BSP(re.findall("[FB]",instructions))
-    column = BSP(re.findall("[LR]",instructions))
+    row_instruction = re.findall("[FB]",instructions)
+    column_instruction = re.findall("[LR]",instructions)
+    row = BSP(row_instruction)
+    column = BSP(column_instruction)
     
-    return (row*8)+column
+    return (row*(2**len(column_instruction)))+column
 
 # Part 1
 start = time.time()
