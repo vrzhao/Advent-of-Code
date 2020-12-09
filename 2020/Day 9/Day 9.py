@@ -6,7 +6,6 @@ Created on Wed Dec  9 04:20:30 2020
 """
 
 import time
-import copy
 
 numbers = []
 
