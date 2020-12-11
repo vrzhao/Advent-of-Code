@@ -43,6 +43,8 @@ print(jolt1 * jolt3)
 end = time.time()
 print(end-start)
 
+start = time.time()
+
 break_points = [0]
 
 for i in range(0,len(joltage) - 1):
@@ -85,7 +87,6 @@ for i in range(0,len(pathways)):
 
 print(unique)
 
-start = time.time()
 
 end = time.time()
 print(end-start)
