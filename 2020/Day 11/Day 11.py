@@ -12,7 +12,7 @@ layout = []
 
 with open("input.txt", "r") as f:
 #with open("test.txt", "r") as f:    
-#2418 for part 1 and 2144 for part 2 
+#DrAfdch 2418 for part 1 and 2144 for part 2 
     for row in f:
         seats = []
         row = row.strip('\n')
