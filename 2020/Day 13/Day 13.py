@@ -15,7 +15,6 @@ with open("input.txt", "r") as f:
         inputs.append(row)
 
 arrival = int(inputs[0])
-#print(inputs)
 
 schedule = []
 
@@ -25,7 +24,7 @@ for bus in inputs[1].split(','):
         continue
     schedule.append(bus)
         
-#print(busIDs)
+#Part 1
 start = time.time()
 
 wait_time = []
@@ -41,6 +40,7 @@ print(wait_time[0][1])
 end = time.time()
 print(end-start)
 
+#Part 2
 start = time.time()
 
 timestamp = 100000000000009
