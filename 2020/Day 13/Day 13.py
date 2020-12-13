@@ -17,19 +17,31 @@ with open("input.txt", "r") as f:
 arrival = int(inputs[0])
 #print(inputs)
 
-busIDs = []
+schedule = []
 
 for bus in inputs[1].split(','):
-    if (bus != 'x'):
-        busIDs.append(int(bus))
+    if(bus != 'x'):
+        schedule.append(int(bus))
+        continue
+    schedule.append(bus)
         
 #print(busIDs)
+start = time.time()
 
-for bus in busIDs:
-    minutes = bus - (arrival%bus)
-    print(minutes, bus, minutes*bus)
+wait_time = []
 
-schedule = inputs[1].split(',')
+for bus in schedule:
+    if (bus != 'x'):
+        minutes = bus - (arrival%bus)
+        wait_time.append([minutes, minutes*bus])
+
+wait_time = sorted(wait_time)
+print(wait_time[0][1])
+
+end = time.time()
+print(end-start)
+
+start = time.time()
 
 timestamp = 100000000000009
 while(True):
@@ -38,13 +50,16 @@ while(True):
     flag = True
     for i in range(0,len(schedule)):
         if schedule[i] != 'x':
-            offset = (timestamp + i) % int(schedule[i])
+            offset = (timestamp + i) % schedule[i]
             if offset != 0:
                 flag = False
             else:
-                increment *= int(schedule[i])
+                increment *= schedule[i]
     if flag == True:
         break
     timestamp += increment
     
 print(timestamp)
+
+end = time.time()
+print(end-start)
