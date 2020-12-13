@@ -45,11 +45,10 @@ start = time.time()
 
 timestamp = 100000000000009
 while(True):
-#    print(timestamp)
     increment= 1
     flag = True
     for i in range(0,len(schedule)):
-        if schedule[i] != 'x':
+        if schedule[i] != 'x': 
             offset = (timestamp + i) % schedule[i]
             if offset != 0:
                 flag = False
