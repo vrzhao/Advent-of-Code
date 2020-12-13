@@ -64,16 +64,20 @@ while(True):
     
     for y in range(0,max_Y):
         for x in range(0,max_X):
-#            print(x,y)
             adjacency = check_adjacent(x,y,new_layout)
+#            print(new_layout[y][x], adjacency)
             if new_layout[y][x] == 'L' and adjacency == 0:
                 temp_layout[y][x] = '#'
+#                print(new_layout[y][x], temp_layout[y][x])                
                 changes += 1
             elif new_layout[y][x] == '#' and adjacency >= 4:
                 temp_layout[y][x] = 'L'
+#                print(new_layout[y][x], temp_layout[y][x])                
                 changes += 1
             elif new_layout[y][x] == '.':
                 continue
+            print(new_layout[y][x],adjacency,temp_layout[y][x])
+
     if(changes == 0):
         break
     new_layout = copy.deepcopy(temp_layout)
